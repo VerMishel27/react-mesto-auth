@@ -1,0 +1,23 @@
+.elements {
+    margin: 0 auto 66px;
+    max-width: 100%;
+    display: grid;
+    row-gap: 20px;
+    column-gap: 17px;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 282px);
+}
+
+@media screen and (max-width: 1279px) {
+    .elements {
+        margin-bottom: calc( (100vw - 320px)/(1279 - 320) * (66 - 48) + 48px);
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .elements {
+        width: calc( (100vw - 320px)/(880 - 320) * (880 - 282) + 282px);
+    }
+    
+}

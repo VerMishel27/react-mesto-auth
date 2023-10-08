@@ -1,0 +1,17 @@
+.form__registrationButton {
+    font-family:'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.form__registrationButton:hover {
+    opacity: 0.85;
+}

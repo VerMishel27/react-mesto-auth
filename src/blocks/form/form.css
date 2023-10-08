@@ -1,0 +1,17 @@
+.form {
+    padding: 0;
+    border: 0;
+    display: block;
+    flex-direction: column;
+    margin: 0 auto 112px;
+    max-width: 358px;
+    width: 100%;
+    display: flex;
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        width: calc( (100vw - 320px)/(767 - 320) * (358 - 238) + 238px);
+        margin-bottom: 70px;
+    }
+}

@@ -1,0 +1,15 @@
+@keyframes hiding {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+.hiding {
+    animation: hiding 0.5s;
+}

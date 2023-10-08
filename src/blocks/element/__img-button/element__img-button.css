@@ -1,0 +1,12 @@
+.element__img-button {
+    width: 100%;
+    max-height: 282px;
+    line-height: 282px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.element__img-button:hover {
+    cursor: pointer;
+}

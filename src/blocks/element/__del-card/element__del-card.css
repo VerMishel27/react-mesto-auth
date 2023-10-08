@@ -1,0 +1,17 @@
+.element__del-card {
+    background-image: url(../../../images/delCard.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    right: 20px;
+    top: 20px;
+    max-width: 18px;
+    width: 100%;
+    min-height: 19px;
+}
+.element__del-card:hover {
+    cursor: pointer;
+}

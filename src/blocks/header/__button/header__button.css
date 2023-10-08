@@ -1,0 +1,29 @@
+.header__button {
+  color: rgba(255, 255, 255, 1);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.header__button:hover {
+    opacity: 0.85;
+}
+
+@media screen and (max-width: 1023px) {
+  .header__button {
+    padding-right: calc((100vw - 768px) / (1023 - 768) * (0 - 40) + 40px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__button {
+    font-size: calc((100vw - 320px) / (767 - 320) * (18 - 14) + 14px);
+    padding-right: calc((100vw - 320px) / (767 - 320) * (40 - 27) + 27px);
+  }
+}

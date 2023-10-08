@@ -1,0 +1,12 @@
+.form__label {
+    display: block;
+    width: 100%;
+    min-height: 27px;
+    position: relative;
+    margin: 0 auto;
+    border-bottom: 2px solid rgba(204, 204, 204, 1);
+}
+
+.form__label:last-of-type {
+    margin-top: 30px;
+}

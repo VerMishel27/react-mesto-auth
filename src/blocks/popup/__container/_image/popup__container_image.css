@@ -1,0 +1,15 @@
+.popup__container_image {
+    max-width: 816px;
+    width: 100%;
+    max-height: 562px;
+    height: 100%;
+    background-color: transparent;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 1279px) {
+    .popup__container_image {
+        width: calc( (100vw - 320px)/(1279 - 320) * (816 - 240) + 240px);
+        height: calc( (100vw - 320px)/(1279 - 320) * (562 - 321) + 321px);
+    }
+}

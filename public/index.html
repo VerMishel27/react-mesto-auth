@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="<%=require('./images/logo-header.svg')%>" alt="Логотип сайта" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img alt="Аватарка" class="profile__avatar">
+        <button class="profile__avatar-changing"></button>
+        <div class="profile__info">
+          <div class="profile__block-info">
+            <h1 class="profile__name"></h1>
+            <p class="profile__description"></p>
+          </div>
+          <button class="profile__edit-button" type="button">
+          </button>
+        </div>
+        <button class="profile__add-button" type="button">
+        </button>
+      </section>
+      <section class="elements">
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Михаил Бубнов</p>
+    </footer>
+  </div>
+  <div class="popup" id="popupProfile">
+    <div class="popup__container">
+      <button class="popup__close" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close-Icon.svg')%>" alt="Закрыть">
+      </button>
+      <form class="popup__form" method="post" name="changing-profile" novalidate>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <label class="popup__label">
+          <input type="text" class="popup__field" id="fieldName" name="name" value="" required minlength="2" maxlength="40">
+        </label>
+        <span id="name-error" class="error"></span>
+        <label class="popup__label">
+          <input type="text" class="popup__field popup__field_valid" id="fieldJob" name="job" value="" required minlength="2" maxlength="200">
+        </label>
+        <span id="job-error" class="error"></span>
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup" id="popup-newCard">
+    <div class="popup__container">
+      <button class="popup__close" id="closeNewCard" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close-Icon.svg')%>" alt="Закрыть">
+      </button>
+      <form class="popup__form" id="formNewCard" method="post" name="new-card" novalidate>
+        <h2 class="popup__title">Новое место</h2>
+        <label class="popup__label">
+          <input type="text" class="popup__field" id="fieldNameCard" name="name-card" value="" placeholder="Название" required minlength="2" maxlength="30">
+        </label>
+        <span class="error" id="name-card-error"></span>
+        <label class="popup__label">
+          <input type="url" class="popup__field" id="fieldLinkCard" name="link-card" value="" placeholder="Ссылка на картинку" required>
+        </label>
+        <span class="error" id="link-card-error"></span>
+        <button class="popup__submit-button" id="submit-button_newCard" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_overlay-img" id="image-popup">
+    <div class="popup__container popup__container_image">
+      <button class="popup__close" id="imagePopupClose" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close-Icon.svg')%>" alt="Закрыть">
+      </button>
+      <img class="popup__img">
+      <h3 class="popup__subtitle"></h3>
+    </div>
+  </div>
+  <div class="popup" id="popup-delCard">
+    <div class="popup__container">
+      <button class="popup__close" id="popupDelCard" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close-Icon.svg')%>" alt="Закрыть">
+      </button>
+      <form class="popup__form" id="formDelCard" >
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="popup__submit-button" id="submit-button_delCard" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup" id="popup-newAvatar">
+    <div class="popup__container">
+      <button class="popup__close" id="closeNewAvatar" type="button">
+        <img class="popup__close-icon" src="<%=require('./images/Close-Icon.svg')%>" alt="Закрыть">
+      </button>
+      <form class="popup__form" id="formNewAvatar" method="post" name="new-avatar" novalidate>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <label class="popup__label">
+          <input type="url" class="popup__field" id="linkAvatarProfile" name="link-avatar" value="" placeholder="Ссылка на картинку" required>
+        </label>
+        <span class="error" id="link-avatar-error"></span>
+        <button class="popup__submit-button" id="submit-button_newAvatar" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <template class="template">
+    <article class="element">
+      <button type="button" class="element__img-button">
+        <img class="element__mask-group">
+      </button>
+      <button type="button" class="element__del-card"></button>
+      <div class="element__description">
+        <h3 class="element__title"></h3>
+        <div class="element__group-like">
+          <button class="element__like" type="button"></button>
+          <span class="element__number-like">0</span>
+        </div>
+      </div>
+    </article>
+  </template>
+</body>
+</html>

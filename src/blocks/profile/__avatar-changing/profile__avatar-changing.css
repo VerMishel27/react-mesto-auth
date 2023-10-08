@@ -1,0 +1,19 @@
+.profile__avatar-changing {
+    position: absolute;
+    background-image: url(../../../images/Avatar-hover.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 0;
+    min-height: 120px;
+    max-width: 120px;
+    width: 100%;
+    padding: 0;
+    opacity: 0;
+}
+
+.profile__avatar-changing:hover {
+    opacity: 1;
+}

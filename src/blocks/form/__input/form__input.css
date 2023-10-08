@@ -1,0 +1,16 @@
+.form__input {
+    padding: 0 0 10px;
+    border: 0;
+    width: 100%;
+    font-family:'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+}
+
+.form__input:focus {
+    outline-color: #03a9f4;
+}

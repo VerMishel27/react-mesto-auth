@@ -1,0 +1,32 @@
+.form__submit-button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+
+    font-family:'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    border: 0;
+    border-radius: 2px;
+    width: 100%;
+    margin: 216px auto 15px;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.form__submit-button:hover {
+    opacity: 0.85;
+}
+
+@media screen and (max-width: 767px) {
+    .form__submit-button {
+        /* margin-bottom: 70px; */
+        font-size: calc( (100vw - 320px)/(767 - 320) * (18 - 14) + 14px);
+        line-height: calc( (100vw - 320px)/(767 - 320) * (50 - 46) + 46px);
+        margin-top: calc( (100vw - 320px)/(767 - 320) * (216 - 173) + 173px);
+    }
+}

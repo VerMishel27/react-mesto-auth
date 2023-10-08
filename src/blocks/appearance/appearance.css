@@ -1,0 +1,12 @@
+@keyframes appearance {
+    from {
+     opacity: 0;
+    }
+    to {
+     opacity: 1;
+    }
+ }
+
+ .appearance {
+    animation: appearance 0.5s;
+ }
