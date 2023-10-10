@@ -1,0 +1,9 @@
+.header__button-close_show {
+    display: none;
+}
+
+@media screen and (max-width:767px) {
+    .header__button-close_show {
+      display: block;
+    }
+  }

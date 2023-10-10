@@ -6,22 +6,22 @@ export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  // const [message, setMessage] = useState("");
+  // const navigate = useNavigate();
 
   const resetForm = () => {
     setEmail("");
     setPassword("");
-    setMessage("");
+    // setMessage("");
   };
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    onLogin({ email, password })
-      .then(resetForm)
-      .then(() => navigate("/cards"))
-      .catch((err) => setMessage(err.message || "Что-то пошло не так"));
+    onLogin({ email, password }, resetForm)
+      // .then(resetForm)
+      // .then(() => navigate("/cards"))
+      // .catch((err) => setMessage(err.message || "Что-то пошло не так"));
   }
 
   return (

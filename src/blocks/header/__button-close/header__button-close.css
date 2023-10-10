@@ -1,0 +1,12 @@
+.header__button-close {
+    padding: 0;
+    border: 0;
+    background-color:  transparent;
+    margin-right: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.header__button-close:hover {
+    opacity: 0.6;
+}

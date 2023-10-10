@@ -18,6 +18,8 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 import InfoTooltip from "./InfoTooltip.jsx";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.jsx";
 import { CurrentCardsContext } from "../contexts/CurrentCardsContext.jsx";
+import menuMobile from "../images/mobil-menu-header.png";
+import closeIcon from "../images/Close-icon.svg";
 
 function App() {
   const [editAvatarClick, setEditAvatarClick] = useState(false);
@@ -31,6 +33,8 @@ function App() {
   const [currentCards, setCurrentCards] = useState([]);
 
   const [delCard, setDelCard] = useState(null);
+
+  const [loggedIn, setLoggedIn] = useState(false);
 
   //const [loggedIn, setLoggedIn] = useState(false);
 
@@ -73,26 +77,28 @@ function App() {
   }
 
   useEffect(() => {
-    api
-      .dataProfile()
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    if (loggedIn)
+      api
+        .dataProfile()
+        .then((res) => {
+          setCurrentUser(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [loggedIn]);
 
   useEffect(() => {
-    api
-      .getInitialCards()
-      .then((res) => {
-        setCurrentCards(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    if (loggedIn)
+      api
+        .getInitialCards()
+        .then((res) => {
+          setCurrentCards(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [loggedIn]);
 
   const handleCardClick = function (src, alt) {
     const clickCard = { src, alt };
@@ -141,10 +147,10 @@ function App() {
     if (isOpen) {
       // навешиваем только при открытии
       document.addEventListener("keydown", closeByEscape);
-      return () => {
-        document.removeEventListener("keydown", closeByEscape);
-      };
     }
+    return () => {
+      document.removeEventListener("keydown", closeByEscape);
+    };
   }, [isOpen]);
 
   const handleUpdateUser = (dataProfile) => {
@@ -183,79 +189,86 @@ function App() {
       });
   };
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
-  //console.log(userData);
+  //console.log(loggedIn);
 
   const auth = (jwt) => {
-    console.log(jwt);
+   // console.log(jwt);
     return mestoAuth.getContent(jwt).then(({ data }) => {
-      console.log(data);
+      //console.log(data);
       if (data) {
-        console.log(data);
+        //console.log(data);
         setLoggedIn(true);
         setUserData({
           email: data.email,
         });
+        navigate("/cards")
       }
     });
   };
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    //console.log(jwt);
+    if(loggedIn === false)
     if (jwt) {
       auth(jwt);
     }
   }, [loggedIn]);
 
-  useEffect(() => {
-    if (loggedIn) navigate("/cards");
-  }, [loggedIn]);
+  // useEffect(() => {
+  //   if (loggedIn) navigate("/cards");
+  // }, [loggedIn]);
 
   const [popupUniconNo, setPopupUniconNo] = useState(false);
   const [popupUniconOk, setPopupUniconOk] = useState(false);
 
-  function popupsUniconNo() {
+  function editUniconNo() {
     setPopupUniconNo(true);
   }
-  function popupsUniconOk() {
+  function editUniconOk() {
     setPopupUniconOk(true);
   }
 
-  const onLogin = ({ email, password }) => {
-    setUserData(email);
+  const onLogin = ({ email, password }, resetForm) => {
+    setUserData({email});
     return mestoAuth
       .authorize(email, password)
       .then((res) => {
-        console.log(res);
+       // console.log(res);
         if (!res) throw new Error("Неправильные имя пользователя или пароль");
         if (res.token) {
-          console.log(res.token);
+         // console.log(res.token);
           setLoggedIn(true);
           localStorage.setItem("jwt", res.token);
+          setDisplay(false)
           navigate("/cards");
         }
       })
-
+      .then(resetForm)
+      .then(() => navigate("/cards"))
       .catch((err) => {
+        editUniconNo();
         console.log(err);
-        popupsUniconNo();
       });
   };
 
-  const onRegister = ({ password, email }) => {
+  const onRegister = ({ password, email }, resetForm) => {
     return mestoAuth
       .register(password, email)
       .then((data) => {
         //  console.log(data)
         if (data.error) {
-          popupsUniconNo();
+          editUniconNo();
         } else {
-          popupsUniconOk();
+          editUniconOk();
         }
       })
+      .then(() => {
+        resetForm;
+      })
+      .then(() => navigate("/sign-in"))
       .catch((err) => {
         console.log(err);
       });
@@ -266,6 +279,16 @@ function App() {
     setLoggedIn(false);
     navigate("/sign-in");
   };
+
+  const [display, setDisplay] = useState(false);
+
+  function openInfo() {
+    setDisplay(true);
+  }
+
+  function closeInfo() {
+    setDisplay(false);
+  }
 
   const Header = () => {
     return (
@@ -317,6 +340,52 @@ function App() {
                   Выйти
                 </button>
               }
+              infoMobile={
+                <div
+                  className={`header__menu-info ${
+                    display && "header__menu-info_show appearance"
+                  }`}
+                >
+                  <p className="header__email header__email_mobile">
+                    {userData.email}
+                  </p>
+                  <button
+                    onClick={onSignOut}
+                    className="header__button header__button_exit header__button_mobile"
+                  >
+                    Выйти
+                  </button>
+                </div>
+              }
+              buttonOpenInfo={
+                <button
+                  onClick={openInfo}
+                  className={`header__button-mobile ${
+                    display ? "header__button-mobile_hide" : ""
+                  }`}
+                >
+                  <img
+                    className="header__button-mobile-img"
+                    src={menuMobile}
+                    alt="Меню"
+                  />
+                </button>
+              }
+              buttonCloseInfo={
+                <button
+                  className={`header__button-close ${
+                    display ? "header__button-close_show" : ""
+                  }`}
+                  type="button"
+                  onClick={closeInfo}
+                >
+                  <img
+                    className="header__close-icon"
+                    src={closeIcon}
+                    alt="Закрыть"
+                  />
+                </button>
+              }
             />
           }
         />
@@ -333,9 +402,7 @@ function App() {
             <Route path="/sign-in" element={<Login onLogin={onLogin} />} />
             <Route
               path="/sign-up"
-              element={
-                <Register onRegister={onRegister} isOpen={popupsUniconOk} />
-              }
+              element={<Register onRegister={onRegister} />}
             />
             <Route
               path="/cards"

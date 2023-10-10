@@ -1,0 +1,26 @@
+.header__button-mobile {
+  display: none;
+  border: 0;
+  padding: 0;
+  margin-right: 24px;
+  cursor: pointer;
+  /* background-image: url(../../../images/mobil-menu-header.png);
+    background-color: transparent;
+    max-width: 24px;
+    width: 100%;
+    line-height: 20px; */
+}
+
+.header__button-mobile:hover {
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 767px) {
+  .header__button-mobile {
+    display: block;
+    background-color: transparent;
+    max-width: 24px;
+    width: 100%;
+    height: 18px;
+  }
+}

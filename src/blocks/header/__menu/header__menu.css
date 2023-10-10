@@ -1,0 +1,8 @@
+.header__menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 83px;
+}

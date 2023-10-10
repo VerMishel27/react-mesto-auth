@@ -18,6 +18,17 @@
 @import url(../blocks/header/__email/header__email.css);
 @import url(../blocks/header/__right/header__right.css);
 @import url(../blocks/header/__button/_exit/header__button_exit.css);
+@import url(../blocks/header/__menu/header__menu.css);
+@import url(../blocks/header/__button-mobile/header__button-mobile.css);
+@import url(../blocks/header/__button-mobile-img/header__button-mobile-img.css);
+@import url(../blocks/header/__menu-info/header__menu-info.css);
+@import url(../blocks/header/__button/_mobile/header__button_mobile.css);
+@import url(../blocks/header/__email/_mobile/header__email_mobile.css);
+@import url(../blocks/header/__menu-info/_show/header__menu-info_show.css);
+@import url(../blocks/header/__button-close/header__button-close.css);
+@import url(../blocks/header/__close-icon/header__close-icon.css);
+@import url(../blocks/header/__button-close/_show/header__button-close_show.css);
+@import url(../blocks/header/__button-mobile/_hide/header__button-mobile_hide.css);
 
 /* content */
 
@@ -56,6 +67,7 @@
 @import url(../blocks/popup/_overlay-img/popup_overlay-img.css);
 @import url(../blocks/popup/__title/_infoTooltip/popup__title_infoTooltip.css);
 @import url(../blocks/popup/__img/_infoTooltip/popup__img_infoTooltip.css);
+@import url(../blocks/popup/_overlay-infoTooltip/popup_overlay-infoTooltip.css);
 
 /* elements */
 

@@ -1,0 +1,10 @@
+.header__email_mobile {
+    margin-top: 40px;
+    margin-right: 0;
+}
+
+@media screen and (max-width: 767px) {
+    .header__email_mobile {
+        display: block;
+    }
+  }

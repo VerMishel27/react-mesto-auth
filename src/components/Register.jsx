@@ -5,27 +5,27 @@ import { useNavigate } from "react-router-dom";
 export default function Register({ onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const navigate = useNavigate("");
 
   const resetForm = () => {
     setEmail("");
     setPassword("");
-    setMessage("");
+    // setMessage("");
   };
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    onRegister({ password, email })
-      .then(() => {
-        resetForm;
-      })
-      .then(() => navigate("/sign-in"))
-      .catch((err) => {
-        setMessage(err.message || "Что-то пошло не так");
-      });
+    onRegister({ password, email }, resetForm)
+      // .then(() => {
+      //   resetForm;
+      // })
+      // .then(() => navigate("/sign-in"))
+      // .catch((err) => {
+      //   setMessage(err.message || "Что-то пошло не так");
+      // });
   }
 
   const visibility = (

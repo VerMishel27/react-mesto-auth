@@ -1,12 +1,12 @@
 .header {
-    display: flex;
-    align-items: flex-start;
+    display: block;
+    /* align-items: flex-start; */
     margin: 0 auto 40px;
     max-width: 880px;
     min-height: 74px;
     padding: 45px 0 0 0;
     position: relative;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .header::before {
@@ -25,5 +25,11 @@
         min-height: calc( (100vw - 320px)/(767 - 320) * (74 - 56) + 56px);
         padding-top: calc( (100vw - 320px)/(767 - 320) * (45 - 28) + 28px);
         margin-bottom: calc( (100vw - 320px)/(767 - 320) * (40 - 42) + 42px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding-top: 0;
     }
 }

@@ -7,7 +7,7 @@ import closeIcon from "../images/Close-icon.svg";
 
 export default function InfoTooltip({isOpen, onClose, title, img}) {
     return (
-        <div className={`popup ${isOpen ? "popup_opened appearance" : ""}`}>
+        <div className={`popup  ${isOpen ? "popup_opened popup_overlay-infoTooltip appearance" : ""}`}>
         <div className="popup__container">
           <button className="popup__close" type="button" onClick={onClose}>
             <img className="popup__close-icon" src={closeIcon} alt="Закрыть" />

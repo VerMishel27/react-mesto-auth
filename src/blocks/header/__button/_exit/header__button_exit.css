@@ -1,3 +1,12 @@
 .header__button_exit {
     color: rgba(169, 169, 169, 1);
 }
+
+@media screen and (max-width: 767px) {
+    .header__button_exit {
+        /* min-height: calc( (100vw - 320px)/(767 - 320) * (74 - 56) + 56px);
+        padding-top: calc( (100vw - 320px)/(767 - 320) * (45 - 28) + 28px);
+        margin-bottom: calc( (100vw - 320px)/(767 - 320) * (40 - 42) + 42px); */
+        display: none;
+    }
+}

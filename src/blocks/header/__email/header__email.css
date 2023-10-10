@@ -7,3 +7,12 @@
     margin: 0;
     margin-right: 24px;
 }
+
+@media screen and (max-width: 767px) {
+    .header__email {
+        /* min-height: calc( (100vw - 320px)/(767 - 320) * (74 - 56) + 56px);
+        padding-top: calc( (100vw - 320px)/(767 - 320) * (45 - 28) + 28px);
+        margin-bottom: calc( (100vw - 320px)/(767 - 320) * (40 - 42) + 42px); */
+        display: none;
+    }
+}

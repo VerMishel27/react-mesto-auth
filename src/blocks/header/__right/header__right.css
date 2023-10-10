@@ -2,3 +2,9 @@
     display: flex;
     margin-top: 9px;
 }
+
+@media screen and (max-width: 767px) {
+    .header__right {
+  margin-top: 0;
+    }
+  }
