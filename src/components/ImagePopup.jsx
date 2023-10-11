@@ -2,7 +2,7 @@ import closeIcon from "../images/Close-icon.svg";
 
 export default function ImagePopup({ card, onClose }) {
   return (
-    <div className={`popup popup_type_image  ${card ? "popup_opened appearance" : ""}`}>
+    <div className={`popup popup_type_image  ${card ? "popup_opened popup_overlay-img appearance" : ""}`}>
       <div className="popup__container popup__container_image">
         <button
           className="popup__close"

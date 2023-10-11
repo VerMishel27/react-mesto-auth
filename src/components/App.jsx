@@ -211,11 +211,11 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    if(loggedIn === false)
+  
     if (jwt) {
       auth(jwt);
     }
-  }, [loggedIn]);
+  }, []);
 
   // useEffect(() => {
   //   if (loggedIn) navigate("/cards");
