@@ -9,6 +9,9 @@ Web-приложение на React, куда можно добавлять фо
 # Стэк
 
 - React
+- JS
+- CSS
+- HTML
 - Figma
 - Git
 
